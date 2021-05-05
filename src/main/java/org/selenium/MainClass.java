@@ -3,15 +3,28 @@ package org.selenium;
 public class MainClass {
 
     public static void main( String[] args ) throws InterruptedException {
+        runActiTimeApp();
+    }
 
-        GoogleSearchApp app = new GoogleSearchApp("./src/drivers/chromedriver.exe");
-        app.goToWebsite("https:/google.se");
+    public static void runGoogleApp() throws InterruptedException {
+        GoogleSearchApp googleApp = new GoogleSearchApp("./src/drivers/chromedriver.exe");
+        googleApp.goToWebsite("https:/google.se");
         Thread.sleep(2000);
-
-        app.acceptCookies("zV9nZe");
-        app.searchString("Software Testing", "q");
-
+        googleApp.acceptCookies("zV9nZe");
+        googleApp.searchString("Software Testing", "q");
         Thread.sleep(2000);
-        app.pressSearch("btnK");
+        googleApp.pressSearch("btnK");
+    }
+
+    public static void runActiTimeApp() throws InterruptedException {
+        ActiTimeApp actitimeApp = new ActiTimeApp("./src/drivers/chromedriver.exe");
+        actitimeApp.goToWebsite("https://www.actitime.com/");
+        Thread.sleep(2000);
+        actitimeApp.clickTryButton("Try Free");
+        Thread.sleep(2000);
+        actitimeApp.addFirstName("Todd");
+        actitimeApp.addLastName("Booth");
+        actitimeApp.addEmail("toddy@ltu.king.se");
+        actitimeApp.addCompany("LTU");
     }
 }
