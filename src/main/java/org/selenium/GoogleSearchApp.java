@@ -25,12 +25,16 @@ public class GoogleSearchApp
         driver.findElement(By.id(acceptCookiesID)).click();
     }
 
-    public String searchString(String searchPhrase, String searchbarName) throws NoSuchElementException {
+    public void searchString(String searchPhrase, String searchbarName) throws NoSuchElementException {
         driver.findElement(By.name(searchbarName)).sendKeys(searchPhrase);
+    }
+
+    public String pressSearch(String buttonName) throws NoSuchElementException {
+        driver.findElement(By.name(buttonName)).click();
         return driver.getTitle();
     }
 
-    public void pressSearch(String buttonName) throws NoSuchElementException {
-        driver.findElement(By.name(buttonName)).click();
+    public void closeWindow() {
+        driver.quit();
     }
 }
