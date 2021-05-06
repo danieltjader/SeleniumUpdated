@@ -41,4 +41,8 @@ public class ActiTimeApp {
     public void addCompany(String companyName) throws NoSuchElementException {
         driver.findElement(By.cssSelector("#company")).sendKeys(companyName);
     }
+
+    public void closeWindow() {
+        driver.quit();
+    }
 }

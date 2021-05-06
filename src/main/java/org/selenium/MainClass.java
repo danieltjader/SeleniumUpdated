@@ -3,6 +3,8 @@ package org.selenium;
 public class MainClass {
 
     public static void main( String[] args ) throws InterruptedException {
+        runGoogleApp();
+        Thread.sleep(1000);
         runActiTimeApp();
     }
 
@@ -14,6 +16,7 @@ public class MainClass {
         googleApp.searchString("Software Testing", "q");
         Thread.sleep(2000);
         googleApp.pressSearch("btnK");
+        googleApp.closeWindow();
     }
 
     public static void runActiTimeApp() throws InterruptedException {
@@ -26,5 +29,7 @@ public class MainClass {
         actitimeApp.addLastName("Booth");
         actitimeApp.addEmail("toddy@ltu.king.se");
         actitimeApp.addCompany("LTU");
+        Thread.sleep(2000);
+        actitimeApp.closeWindow();
     }
 }
