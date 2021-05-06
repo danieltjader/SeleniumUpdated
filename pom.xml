@@ -5,12 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.selenium</groupId>
-  <artifactId>GoogleSearch</artifactId>
+  <artifactId>SeleniumApps</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>GoogleSearch</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <name>SeleniumApps</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
