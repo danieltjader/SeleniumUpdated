@@ -4,45 +4,51 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class ActiTimeApp {
 
     private WebDriver driver;
+    private EventListener listener;
+    private EventFiringWebDriver eventDriver;
 
     public ActiTimeApp(String chromeDriverPath) {
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         driver = new ChromeDriver();
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
+        eventDriver = new EventFiringWebDriver(driver);
+        EventListener listener = new EventListener();
+        eventDriver.register(listener);
+        eventDriver.manage().deleteAllCookies();
+        eventDriver.manage().window().maximize();
     }
 
     public String goToWebsite(String URL) {
-        driver.get(URL);
-        return driver.getTitle();
+        eventDriver.get(URL);
+        return eventDriver.getTitle();
     }
 
     public String clickTryButton(String btnText){
-        driver.findElement(By.linkText(btnText)).click();
-        return driver.getTitle();
+        eventDriver.findElement(By.linkText(btnText)).click();
+        return eventDriver.getTitle();
     }
 
     public void addFirstName(String firstname) throws NoSuchElementException {
-        driver.findElement(By.cssSelector("#first-name")).sendKeys(firstname);
+        eventDriver.findElement(By.cssSelector("#first-name")).sendKeys(firstname);
     }
 
     public void addLastName(String lastname) throws NoSuchElementException {
-        driver.findElement(By.cssSelector("#last-name")).sendKeys(lastname);
+        eventDriver.findElement(By.cssSelector("#last-name")).sendKeys(lastname);
     }
 
     public void addEmail(String emailAddress) throws NoSuchElementException {
-        driver.findElement(By.cssSelector("#email")).sendKeys(emailAddress);
+        eventDriver.findElement(By.cssSelector("#email")).sendKeys(emailAddress);
     }
 
     public void addCompany(String companyName) throws NoSuchElementException {
-        driver.findElement(By.cssSelector("#company")).sendKeys(companyName);
+        eventDriver.findElement(By.cssSelector("#company")).sendKeys(companyName);
     }
 
     public void closeWindow() {
-        driver.quit();
+        eventDriver.quit();
     }
 }

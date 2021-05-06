@@ -1,12 +1,23 @@
 package org.selenium;
 
+import org.apache.log4j.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
+import java.io.Console;
+
 public class EventListener implements WebDriverEventListener {
+
+    static final Logger logger = Logger.getLogger(EventListener.class);
+    static ConsoleAppender consoleAppender;
+
+    public EventListener(){
+        consoleAppender = new ConsoleAppender();
+        consoleAppender.setThreshold(Level.INFO);
+    }
 
     @Override
     public void beforeAlertAccept(WebDriver driver) {
@@ -85,7 +96,7 @@ public class EventListener implements WebDriverEventListener {
 
     @Override
     public void afterClickOn(WebElement element, WebDriver driver) {
-
+        logger.info("En element was clicked");
     }
 
     @Override
