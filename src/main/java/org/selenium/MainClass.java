@@ -5,12 +5,13 @@ import java.util.concurrent.TimeUnit;
 public class MainClass {
 
     private final static int IMPLICIT_WAIT_10S = 10;
+    private final static int WAIT_TIME_3S = 3000;
 
     public static void main( String[] args ) throws InterruptedException {
 
-        //runGoogleApp();
-        runActiTimeApp();   //currently not working
-        //runAdlibrisApp();
+        runGoogleApp();
+        runActiTimeApp();
+        runAdlibrisApp();
     }
 
     private static void runAdlibrisApp() throws InterruptedException {
@@ -23,7 +24,7 @@ public class MainClass {
         adlibrisApp.openCart("--cart");
         adlibrisApp.checkOut("Till kassan");
 
-        Thread.sleep(3000);
+        Thread.sleep(WAIT_TIME_3S);
         adlibrisApp.closeWindow();
 
     }
@@ -37,7 +38,7 @@ public class MainClass {
         googleApp.searchString("Software Testing", "q");
         googleApp.pressSearch("btnK");
 
-        Thread.sleep(3000);
+        Thread.sleep(WAIT_TIME_3S);
         googleApp.closeWindow();
     }
 
@@ -52,7 +53,7 @@ public class MainClass {
         actitimeApp.addEmail("winston@churchill.com");
         actitimeApp.addCompany("Ikea");
 
-        Thread.sleep(3000);
+        Thread.sleep(WAIT_TIME_3S);
         actitimeApp.closeWindow();
     }
 }
