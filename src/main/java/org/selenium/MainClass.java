@@ -9,9 +9,9 @@ public class MainClass {
 
     public static void main( String[] args ) throws InterruptedException {
 
-        runGoogleApp();
+        //runGoogleApp();
         runActiTimeApp();
-        runAdlibrisApp();
+        //runAdlibrisApp();
     }
 
     private static void runAdlibrisApp() throws InterruptedException {
