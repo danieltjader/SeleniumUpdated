@@ -4,42 +4,48 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class GoogleSearchApp
 {
     private WebDriver driver;
+    private EventFiringWebDriver eventDriver;
+    private EventListener listener;;
 
     public GoogleSearchApp(String chromeDriverPath) {
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         driver = new ChromeDriver();
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
+        eventDriver = new EventFiringWebDriver(driver);
+        EventListener listener = new EventListener();
+        eventDriver.register(listener);
+        eventDriver.manage().deleteAllCookies();
+        eventDriver.manage().window().maximize();
     }
 
     public WebDriver getDriver() {
-        return driver;
+        return eventDriver;
     }
 
     public String goToWebsite(String URL) {
-        driver.get(URL);
-        return driver.getTitle();
+        eventDriver.get(URL);
+        return eventDriver.getTitle();
     }
 
     public void acceptCookies(String acceptCookiesID) throws NoSuchElementException{
-        driver.findElement(By.id(acceptCookiesID)).click();
+        eventDriver.findElement(By.id(acceptCookiesID)).click();
     }
 
     public void searchString(String searchPhrase, String searchbarName) throws NoSuchElementException {
-        driver.findElement(By.name(searchbarName)).sendKeys(searchPhrase);
+        eventDriver.findElement(By.name(searchbarName)).sendKeys(searchPhrase);
     }
 
     public String pressSearch(String buttonName) throws NoSuchElementException {
-        driver.findElement(By.name(buttonName)).click();
-        return driver.getTitle();
+        eventDriver.findElement(By.name(buttonName)).click();
+        return eventDriver.getTitle();
     }
 
     public void closeWindow() {
-        driver.quit();
+        eventDriver.quit();
     }
 }
 
