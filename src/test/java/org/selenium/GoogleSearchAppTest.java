@@ -10,13 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GoogleSearchAppTest {
 
     public static GoogleSearchApp app;
-    private static final int IMPLICIT_WAITING_TIME_10S = 10;
 
     @BeforeEach
     public void setUp() {
         String chromeDriverPath = "./src/drivers/chromedriver.exe";
         app = new GoogleSearchApp(chromeDriverPath);
-        app.getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAITING_TIME_10S, TimeUnit.SECONDS);
     }
 
     @AfterEach
