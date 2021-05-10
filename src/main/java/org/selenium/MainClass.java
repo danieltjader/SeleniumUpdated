@@ -16,7 +16,6 @@ public class MainClass {
 
     private static void runAdlibrisApp() throws InterruptedException {
         AdlibrisApp adlibrisApp = new AdlibrisApp("./src/drivers/chromedriver.exe");
-        adlibrisApp.getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAIT_10S, TimeUnit.SECONDS);
 
         adlibrisApp.goToWebsite("https://Adlibris.Com/se/");
         adlibrisApp.searchString("praktisk mjukvarutestning");
@@ -31,7 +30,6 @@ public class MainClass {
 
     public static void runGoogleApp() throws InterruptedException {
         GoogleSearchApp googleApp = new GoogleSearchApp("./src/drivers/chromedriver.exe");
-        googleApp.getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAIT_10S, TimeUnit.SECONDS);
 
         googleApp.goToWebsite("https:/google.se");
         googleApp.acceptCookies("zV9nZe");
@@ -44,12 +42,13 @@ public class MainClass {
 
     public static void runActiTimeApp() throws InterruptedException {
         ActiTimeApp actitimeApp = new ActiTimeApp("./src/drivers/chromedriver.exe");
-        actitimeApp.getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAIT_10S, TimeUnit.SECONDS);
+
         actitimeApp.initializeBuilder();
         actitimeApp.goToWebsite("https://www.actitime.com/");
         actitimeApp.clickTryButton("Try Free");
         actitimeApp.createFillActions();
         actitimeApp.performFillActions("Winston", "Churchill", "winston@churchill.com", "ikea");
+
         Thread.sleep(WAIT_TIME_3S);
         actitimeApp.closeWindow();
     }

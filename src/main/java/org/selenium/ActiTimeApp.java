@@ -8,7 +8,12 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class ActiTimeApp {
+
+    private final int IMPLICITLY_WAIT_30S = 30;
+    private final int IMPLICITLY_WAIT_45S = 45;
 
     private WebDriver driver;
     private EventListener listener;
@@ -27,6 +32,8 @@ public class ActiTimeApp {
         eventDriver.register(listener);
         eventDriver.manage().deleteAllCookies();
         eventDriver.manage().window().maximize();
+        eventDriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_30S, TimeUnit.SECONDS);
+        eventDriver.manage().timeouts().pageLoadTimeout(IMPLICITLY_WAIT_45S , TimeUnit.SECONDS);
     }
 
     public void initializeBuilder(){
