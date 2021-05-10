@@ -16,6 +16,10 @@ public class AdlibrisApp {
         driver.manage().window().maximize();
     }
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     public String goToWebsite(String URL) {
         driver.get(URL);
         return driver.getTitle();

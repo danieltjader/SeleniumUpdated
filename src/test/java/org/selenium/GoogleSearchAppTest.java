@@ -2,17 +2,21 @@ package org.selenium;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.NoSuchElementException;
+
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GoogleSearchAppTest {
 
     public static GoogleSearchApp app;
-    private static final int WAITING_TIME = 200;
+    private static final int IMPLICIT_WAITING_TIME_10S = 10;
 
     @BeforeEach
     public void setUp() {
         String chromeDriverPath = "./src/drivers/chromedriver.exe";
         app = new GoogleSearchApp(chromeDriverPath);
+        app.getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAITING_TIME_10S, TimeUnit.SECONDS);
     }
 
     @AfterEach
@@ -26,7 +30,6 @@ public class GoogleSearchAppTest {
         String correctGoogleURL = "https:/google.se";
 
         String result = app.goToWebsite(correctGoogleURL);
-        Thread.sleep(WAITING_TIME);
 
         assertEquals(expected, result);
     }
@@ -40,13 +43,9 @@ public class GoogleSearchAppTest {
         String correctSearchButtonName = "btnK";
 
         app.goToWebsite(correctGoogleURL);
-        Thread.sleep(WAITING_TIME);
         app.acceptCookies(correctCookieID);
-        Thread.sleep(WAITING_TIME);
         app.searchString("Software Testing", correctSearchbarName);
-        Thread.sleep(WAITING_TIME);
         String result = app.pressSearch(correctSearchButtonName);
-        Thread.sleep(WAITING_TIME);
 
         Assertions.assertEquals(expected, result);
     }
@@ -55,7 +54,6 @@ public class GoogleSearchAppTest {
     public void isCookiesElement_NotFound_ThrowNoSuchElementException() throws InterruptedException {
         String googleURL = "https:/google.se";
         app.goToWebsite(googleURL);
-        Thread.sleep(WAITING_TIME);
 
         Assertions.assertThrows(NoSuchElementException.class, () -> {
             app.acceptCookies("fakeID");
@@ -71,9 +69,7 @@ public class GoogleSearchAppTest {
         String correctSearchPhrase = "Software Testing";
 
         app.goToWebsite(correctGoogleURL);
-        Thread.sleep(WAITING_TIME);
         app.acceptCookies(correctCookieID);
-        Thread.sleep(WAITING_TIME);
 
         Assertions.assertThrows(NoSuchElementException.class, () -> {
             app.searchString(correctSearchPhrase, fakeSearchbarName);
@@ -90,11 +86,8 @@ public class GoogleSearchAppTest {
         String fakeSearchButtonName = "fakeName";
 
         app.goToWebsite(correctGoogleURL);
-        Thread.sleep(WAITING_TIME);
         app.acceptCookies(correctCookieID);
-        Thread.sleep(WAITING_TIME);
         app.searchString(correctSearchPhrase, correctSearchBarName);
-        Thread.sleep(WAITING_TIME);
 
         Assertions.assertThrows(NoSuchElementException.class, () -> {
             app.pressSearch(fakeSearchButtonName);

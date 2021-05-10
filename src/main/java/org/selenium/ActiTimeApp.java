@@ -22,6 +22,10 @@ public class ActiTimeApp {
         eventDriver.manage().window().maximize();
     }
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     public String goToWebsite(String URL) {
         eventDriver.get(URL);
         return eventDriver.getTitle();
