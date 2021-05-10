@@ -9,7 +9,7 @@ public class MainClass {
     public static void main( String[] args ) throws InterruptedException {
 
         //runGoogleApp();
-        runActiTimeApp();   //currently not working
+        runActiTimeApp();
         //runAdlibrisApp();
     }
 
@@ -44,14 +44,11 @@ public class MainClass {
     public static void runActiTimeApp() throws InterruptedException {
         ActiTimeApp actitimeApp = new ActiTimeApp("./src/drivers/chromedriver.exe");
         actitimeApp.getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAIT_10S, TimeUnit.SECONDS);
-
+        actitimeApp.initializeBuilder();
         actitimeApp.goToWebsite("https://www.actitime.com/");
         actitimeApp.clickTryButton("Try Free");
-        actitimeApp.addFirstName("Winston");
-        actitimeApp.addLastName("Churchill");
-        actitimeApp.addEmail("winston@churchill.com");
-        actitimeApp.addCompany("Ikea");
-
+        actitimeApp.createFillActions();
+        actitimeApp.performFillActions("Winston", "Churchill", "winston@churchill.com", "ikea");
         Thread.sleep(3000);
         actitimeApp.closeWindow();
     }
