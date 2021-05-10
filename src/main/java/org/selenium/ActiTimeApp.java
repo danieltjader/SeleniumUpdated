@@ -32,8 +32,8 @@ public class ActiTimeApp {
         eventDriver.register(listener);
         eventDriver.manage().deleteAllCookies();
         eventDriver.manage().window().maximize();
-        eventDriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_30S, TimeUnit.SECONDS);
-        eventDriver.manage().timeouts().pageLoadTimeout(IMPLICITLY_WAIT_45S , TimeUnit.SECONDS);
+        //eventDriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_30S, TimeUnit.SECONDS);
+        //eventDriver.manage().timeouts().pageLoadTimeout(IMPLICITLY_WAIT_45S , TimeUnit.SECONDS);
     }
 
     public void initializeBuilder(){
