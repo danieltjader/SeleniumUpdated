@@ -1,6 +1,13 @@
 package org.selenium;
 
-import org.apache.log4j.*;
+
+
+
+
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
@@ -9,10 +16,11 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 
 public class EventListener implements WebDriverEventListener {
 
-    static final Logger logger = Logger.getLogger(EventListener.class);
-    static ConsoleAppender consoleAppender = new ConsoleAppender();
+    private Logger logger;
 
-
+    EventListener() {
+         logger = (Logger) LogManager.getLogger(EventListener.class);
+    }
 
     @Override
     public void beforeAlertAccept(WebDriver driver) {
@@ -91,7 +99,7 @@ public class EventListener implements WebDriverEventListener {
 
     @Override
     public void afterClickOn(WebElement element, WebDriver driver) {
-        logger.info("En element was clicked");
+        logger.info("En element was clicked on the website: " + driver.getCurrentUrl());
     }
 
     @Override
