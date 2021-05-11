@@ -10,12 +10,12 @@ public class MainClass {
     public static void main( String[] args ) throws InterruptedException {
 
         //runGoogleApp();
-        runActiTimeApp();
-        //runAdlibrisApp();
+        //runActiTimeApp();
+        runAdlibrisApp();
     }
 
     private static void runAdlibrisApp() throws InterruptedException {
-        AdlibrisApp adlibrisApp = new AdlibrisApp("./src/drivers/chromedriver.exe");
+        AdlibrisApp adlibrisApp = new AdlibrisApp("./src/drivers/geckodriver.exe");
 
         adlibrisApp.goToWebsite("https://Adlibris.Com/se/");
         adlibrisApp.searchString("praktisk mjukvarutestning");

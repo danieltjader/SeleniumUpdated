@@ -1,5 +1,6 @@
 package org.selenium;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 
@@ -15,6 +16,11 @@ public class EventListener implements WebDriverEventListener {
 
     EventListener() {
          logger = (Logger) LogManager.getLogger(EventListener.class);
+         logger.info("----------------------------------------------");
+         logger.info("----------------------------------------------");
+         logger.info("-------Creating logs for a new session--------");
+         logger.info("----------------------------------------------");
+         logger.info("----------------------------------------------");
     }
 
     @Override
@@ -39,12 +45,12 @@ public class EventListener implements WebDriverEventListener {
 
     @Override
     public void beforeNavigateTo(String url, WebDriver driver) {
-
+        logger.info("Trying to navigate to: " + driver.getCurrentUrl());
     }
 
     @Override
     public void afterNavigateTo(String url, WebDriver driver) {
-
+        logger.info("[Completed] navigation to: " + driver.getCurrentUrl());
     }
 
     @Override
@@ -79,17 +85,17 @@ public class EventListener implements WebDriverEventListener {
 
     @Override
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-
+        logger.info("Trying to find element By: " + by.toString());
     }
 
     @Override
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
-
+        logger.info("[Completed] found element By: " + by.toString());
     }
 
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
-
+        logger.info("Trying to click on element with the text: " + element.getText());
     }
 
     @Override

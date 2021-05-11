@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,10 +22,9 @@ public class AdlibrisApp {
     private EventListener listener;
     private WebDriverWait wait;
 
-
-    public AdlibrisApp(String chromeDriverPath) {
-        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-        driver = new ChromeDriver();
+    public AdlibrisApp(String geckoDriverPath) {
+        System.setProperty("webdriver.gecko.driver", geckoDriverPath);
+        driver = new FirefoxDriver();
         eventDriver = new EventFiringWebDriver(driver);
         EventListener listener = new EventListener();
         eventDriver.register(listener);
@@ -49,17 +49,17 @@ public class AdlibrisApp {
     }
 
     public void addToCart(String title){
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//a[@title='" + title + "']"))));
+        wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//a[@title='" + title + "']"))));
         eventDriver.findElement(By.xpath("//a[@title='" + title + "']")).click();
     }
 
     public void openCart(String partialClassname){
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//button[contains(@class,'" + partialClassname + "')]"))));
+        wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//button[contains(@class,'" + partialClassname + "')]"))));
         eventDriver.findElement(By.xpath("//button[contains(@class,'" + partialClassname + "')]")).click();
     }
 
     public void checkOut(String buttonText){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText(buttonText)));
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText(buttonText)));
         eventDriver.findElement(By.linkText(buttonText)).click();
     }
 
