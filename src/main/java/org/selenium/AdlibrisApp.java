@@ -26,13 +26,15 @@ public class AdlibrisApp {
         System.setProperty("webdriver.gecko.driver", geckoDriverPath);
         driver = new FirefoxDriver();
         eventDriver = new EventFiringWebDriver(driver);
-        EventListener listener = new EventListener();
+        listener = new EventListener();
+        wait = new WebDriverWait(eventDriver, 5);
+
         eventDriver.register(listener);
         eventDriver.manage().deleteAllCookies();
         eventDriver.manage().window().maximize();
-        wait = new WebDriverWait(eventDriver, 5);
+        eventDriver.manage().timeouts().pageLoadTimeout(IMPLICITLY_WAIT_45S , TimeUnit.SECONDS);
+
         //eventDriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_30S, TimeUnit.SECONDS);
-        //eventDriver.manage().timeouts().pageLoadTimeout(IMPLICITLY_WAIT_45S , TimeUnit.SECONDS);
     }
 
     public WebDriver getDriver() {
