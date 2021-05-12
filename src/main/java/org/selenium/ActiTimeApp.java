@@ -4,9 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,22 +21,25 @@ public class ActiTimeApp {
     private WebDriver driver;
     private EventListener listener;
     private EventFiringWebDriver eventDriver;
+    private WebDriverWait wait;
     private Actions builder;
     private WebElement firstnameWE;
     private WebElement lastnameWE;
     private WebElement emailWE;
     private WebElement companyWE;
 
-    public ActiTimeApp(String chromeDriverPath) {
-        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-        driver = new ChromeDriver();
+    public ActiTimeApp(String geckoDriverPath) {
+        System.setProperty("webdriver.gecko.driver", geckoDriverPath);
+        driver = new FirefoxDriver();
         eventDriver = new EventFiringWebDriver(driver);
-        EventListener listener = new EventListener();
+        listener = new EventListener();
+        wait = new WebDriverWait(eventDriver, 5);
+
         eventDriver.register(listener);
         eventDriver.manage().deleteAllCookies();
         eventDriver.manage().window().maximize();
+        eventDriver.manage().timeouts().pageLoadTimeout(IMPLICITLY_WAIT_45S , TimeUnit.SECONDS);
         //eventDriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_30S, TimeUnit.SECONDS);
-        //eventDriver.manage().timeouts().pageLoadTimeout(IMPLICITLY_WAIT_45S , TimeUnit.SECONDS);
     }
 
     public void initializeBuilder(){
@@ -41,6 +47,9 @@ public class ActiTimeApp {
     }
 
     public void createFillActions() {
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#first-name")));
+
         firstnameWE = eventDriver.findElement(By.cssSelector("#first-name"));
         lastnameWE = eventDriver.findElement(By.cssSelector("#last-name"));
         emailWE = eventDriver.findElement(By.cssSelector("#email"));
@@ -73,6 +82,7 @@ public class ActiTimeApp {
     }
 
     public String clickTryButton(String btnText){
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText(btnText)));
         eventDriver.findElement(By.linkText(btnText)).click();
         return eventDriver.getTitle();
     }
