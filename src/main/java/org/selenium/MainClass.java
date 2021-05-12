@@ -7,8 +7,8 @@ public class MainClass {
     public static void main( String[] args ) throws InterruptedException {
 
         runGoogleApp();
-        runActiTimeApp();
-        runAdlibrisApp();
+        //runActiTimeApp();
+        //runAdlibrisApp();
     }
 
     private static void runAdlibrisApp() throws InterruptedException {

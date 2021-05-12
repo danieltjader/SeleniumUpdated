@@ -1,0 +1,48 @@
+2021-05-12 14:27:50.676 [main] INFO  org.selenium.EventListener - ----------------------------------------------
+2021-05-12 14:27:50.678 [main] INFO  org.selenium.EventListener - ----------------------------------------------
+2021-05-12 14:27:50.678 [main] INFO  org.selenium.EventListener - -------Creating logs for a new session--------
+2021-05-12 14:27:50.678 [main] INFO  org.selenium.EventListener - ----------------------------------------------
+2021-05-12 14:27:50.678 [main] INFO  org.selenium.EventListener - ----------------------------------------------
+2021-05-12 14:27:50.979 [main] INFO  org.selenium.EventListener - Trying to navigate to: about:blank
+2021-05-12 14:27:51.832 [main] INFO  org.selenium.EventListener - [Completed] navigation to: https://www.google.se/
+2021-05-12 14:27:51.845 [main] INFO  org.selenium.EventListener - Trying to find element By: By.id: L2AGLb
+2021-05-12 14:27:51.960 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.id: L2AGLb
+2021-05-12 14:27:52.033 [main] INFO  org.selenium.EventListener - Trying to find element By: By.id: L2AGLb
+2021-05-12 14:27:52.040 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.id: L2AGLb
+2021-05-12 14:27:52.053 [main] INFO  org.selenium.EventListener - Trying to click on element with the text: Jag godkänner
+2021-05-12 14:27:52.300 [main] INFO  org.selenium.EventListener - En element was clicked on the website: https://www.google.se/
+2021-05-12 14:27:52.301 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: q
+2021-05-12 14:27:52.402 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: q
+2021-05-12 14:27:52.481 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: q
+2021-05-12 14:27:52.492 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: q
+2021-05-12 14:27:52.591 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: btnK
+2021-05-12 14:27:52.697 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: btnK
+2021-05-12 14:27:52.733 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: btnK
+2021-05-12 14:27:52.740 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: btnK
+2021-05-12 14:27:52.746 [main] INFO  org.selenium.EventListener - Trying to click on element with the text: 
+2021-05-12 14:27:54.233 [main] INFO  org.selenium.EventListener - En element was clicked on the website: https://www.google.se/search?q=Software+Testing&source=hp&ei=x8mbYPyaJfSBi-gP96KZgAg&iflsig=AINFCbYAAAAAYJvX18mymWCzg5hFu5hU_Bk8s_mu-dGa&oq=Software+Testing&gs_lcp=Cgdnd3Mtd2l6EAwyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAUF1YowFg1gJoAHAAeACAAWOIAc8CkgEBNJgBAKABAaoBB2d3cy13aXo&sclient=gws-wiz&ved=0ahUKEwi8mqidksTwAhX0wAIHHXdRBoAQ4dUDCAY
+2021-05-12 14:28:32.424 [main] INFO  org.selenium.EventListener - ----------------------------------------------
+2021-05-12 14:28:32.427 [main] INFO  org.selenium.EventListener - ----------------------------------------------
+2021-05-12 14:28:32.427 [main] INFO  org.selenium.EventListener - -------Creating logs for a new session--------
+2021-05-12 14:28:32.427 [main] INFO  org.selenium.EventListener - ----------------------------------------------
+2021-05-12 14:28:32.427 [main] INFO  org.selenium.EventListener - ----------------------------------------------
+2021-05-12 14:28:32.730 [main] INFO  org.selenium.EventListener - Trying to navigate to: about:blank
+2021-05-12 14:28:33.395 [main] INFO  org.selenium.EventListener - [Completed] navigation to: https://www.google.se/
+2021-05-12 14:28:33.406 [main] INFO  org.selenium.EventListener - Trying to find element By: By.id: L2AGLb
+2021-05-12 14:28:33.426 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.id: L2AGLb
+2021-05-12 14:28:33.495 [main] INFO  org.selenium.EventListener - Trying to find element By: By.id: L2AGLb
+2021-05-12 14:28:33.502 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.id: L2AGLb
+2021-05-12 14:28:33.516 [main] INFO  org.selenium.EventListener - Trying to click on element with the text: Jag godkänner
+2021-05-12 14:28:33.764 [main] INFO  org.selenium.EventListener - En element was clicked on the website: https://www.google.se/
+2021-05-12 14:28:33.765 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: q
+2021-05-12 14:28:33.848 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: q
+2021-05-12 14:28:33.939 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: q
+2021-05-12 14:28:33.949 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: q
+2021-05-12 14:28:34.092 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: btnK
+2021-05-12 14:28:34.115 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: btnK
+2021-05-12 14:28:34.663 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: btnK
+2021-05-12 14:28:34.671 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: btnK
+2021-05-12 14:28:34.698 [main] INFO  org.selenium.EventListener - Trying to find element By: By.name: btnK
+2021-05-12 14:28:34.704 [main] INFO  org.selenium.EventListener - [Completed] found element By: By.name: btnK
+2021-05-12 14:28:34.709 [main] INFO  org.selenium.EventListener - Trying to click on element with the text: 
+2021-05-12 14:28:36.079 [main] INFO  org.selenium.EventListener - En element was clicked on the website: https://www.google.se/search?q=Software+Testing&source=hp&ei=8cmbYJ_aFISzkwX7_KqwAQ&iflsig=AINFCbYAAAAAYJvYAds7sxICAXyqvMN706ZZl0U4a5_S&oq=Software+Testing&gs_lcp=Cgdnd3Mtd2l6EAwyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAUIsBWOIBYN8GaABwAHgCgAHHAogBygWSAQcwLjMuMC4xmAEAoAEBqgEHZ3dzLXdpeg&sclient=gws-wiz&ved=0ahUKEwjflpuxksTwAhWE2aQKHXu-ChYQ4dUDCAY
